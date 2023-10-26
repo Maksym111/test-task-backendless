@@ -7,7 +7,7 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/backendless-task">
+    <BrowserRouter basename="/test-task-backendless">
       <App />
     </BrowserRouter>
   </React.StrictMode>
