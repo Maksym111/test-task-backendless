@@ -1,7 +1,8 @@
 import { lazy, Suspense } from "react";
 
 function TabContent({ path }) {
-  const Tab = lazy(() => import(`/src/pages/${path}x`));
+  const newPath = path.split(".")[0].split("/")[1];
+  const Tab = lazy(() => import(`../../pages/tabs/${newPath}.jsx`));
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

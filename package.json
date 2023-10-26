@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Maksym111.github.io/test-task-backendless/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
