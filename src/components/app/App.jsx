@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import fetchTabs from "../../services/axios";
 
 import Navigation from "../../components/Navigation/Navigation";
 import TabContent from "../../components/tabContent/TabContent";
@@ -14,9 +13,8 @@ export const App = () => {
     const localData = getDataLocStor();
 
     async function fetchData() {
-      const dataTabs = await fetch("/data/tabs.json");
+      const dataTabs = await fetch("data/tabs.json");
       const json = await dataTabs.json();
-      console.log(json);
       const sortedData = json.sort((a, b) => a.order - b.order);
       setTabs(sortedData);
 
