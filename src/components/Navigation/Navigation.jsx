@@ -14,7 +14,9 @@ const Navigation = ({ tabs }) => {
           {tabs.map((item) => {
             return (
               <NavItem key={item.id}>
-                <NavItemLink to={`${item.id}`}>{item.title}</NavItemLink>
+                <NavItemLink to={`/test-task-backendless/${item.id}`}>
+                  {item.title}
+                </NavItemLink>
               </NavItem>
             );
           })}

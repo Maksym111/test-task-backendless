@@ -47,14 +47,18 @@ export const App = () => {
         {tabs.map((item) => (
           <Route
             key={item.id}
-            path={`/${item.id}`}
+            path={`/test-task-backendless/${item.id}`}
             element={<TabContent path={item.path} />}
           />
         ))}
         {firstTabIndex !== null && (
           <Route
             path="*"
-            element={<Navigate to={tabs[firstTabIndex].id} replace />}
+            element={
+              <Navigate
+                to={`/test-task-backendless/${tabs[firstTabIndex].id}`}
+              />
+            }
           />
         )}
       </Routes>
