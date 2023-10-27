@@ -1,4 +1,4 @@
-import{n as o}from"./index-ef3bd70a.js";const a=o.table`
+import{n as o}from"./index-d930c5a5.js";const a=o.table`
   margin: 20px auto;
   width: 100%;
   max-width: 1200px;
