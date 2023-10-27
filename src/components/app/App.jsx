@@ -42,26 +42,30 @@ export const App = () => {
 
   return (
     <>
-      <Navigation tabs={tabs} />
-      <Routes>
-        {tabs.map((item) => (
-          <Route
-            key={item.id}
-            path={`/test-task-backendless/${item.id}`}
-            element={<TabContent path={item.path} />}
-          />
-        ))}
-        {firstTabIndex !== null && (
-          <Route
-            path="*"
-            element={
-              <Navigate
-                to={`/test-task-backendless/${tabs[firstTabIndex].id}`}
+      {tabs.length > 0 && (
+        <>
+          <Navigation tabs={tabs} />
+          <Routes>
+            {tabs.map((item) => (
+              <Route
+                key={item.id}
+                path={`/test-task-backendless/${item.id}`}
+                element={<TabContent path={item.path} />}
               />
-            }
-          />
-        )}
-      </Routes>
+            ))}
+            {firstTabIndex !== null && (
+              <Route
+                path="*"
+                element={
+                  <Navigate
+                    to={`/test-task-backendless/${tabs[firstTabIndex].id}`}
+                  />
+                }
+              />
+            )}
+          </Routes>
+        </>
+      )}
     </>
   );
 };
