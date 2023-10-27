@@ -14,15 +14,16 @@ export const App = () => {
     const localData = getDataLocStor();
 
     async function fetchData() {
-      const dataTabs = await fetchTabs("/data/tabs.json").then((data) =>
-        data.sort((a, b) => a.order - b.order)
-      );
-      setTabs(dataTabs);
+      const dataTabs = await fetch("/data/tabs.json");
+      const json = await dataTabs.json();
+      console.log(json);
+      const sortedData = json.sort((a, b) => a.order - b.order);
+      setTabs(sortedData);
 
       const url = window.location.pathname;
       const urlWords = url.split("/");
       const ourPage = urlWords[urlWords.length - 1];
-      const tabExists = dataTabs.find((tab) => tab.id === ourPage);
+      const tabExists = sortedData.find((tab) => tab.id === ourPage);
 
       if (localData !== null) {
         setFirstTabIndex(localData);
@@ -31,7 +32,7 @@ export const App = () => {
           setDataLocStor(tabExists.order);
           setFirstTabIndex(tabExists.order);
         } else {
-          const indexPage = dataTabs.findIndex((elem) => elem.order === 0);
+          const indexPage = sortedData.findIndex((elem) => elem.order === 0);
           setDataLocStor(indexPage);
           setFirstTabIndex(indexPage);
         }
